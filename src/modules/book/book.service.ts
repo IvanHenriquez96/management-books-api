@@ -16,4 +16,12 @@ export class BookService {
     async create() {
         // return await this.bookModel.create();
     }
+
+    async update(id) {
+        //return update
+    }
+
+    async delete(id) {
+        //return delete
+    }
 }

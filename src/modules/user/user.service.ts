@@ -1,19 +1,18 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
-import { Review } from "./schemas/review.schema";
+import { User } from "./schemas/user.schema";
 import { Model } from "mongoose";
 
 @Injectable()
-export class ReviewService {
-
-    constructor(@InjectModel(Review.name) private reviewModel: Model<Review> ){}
+export class UserService {
+    constructor(@InjectModel(User.name) private userModel: Model<User>){}
 
     async findAll(){
-        return await this.reviewModel.find();
+        return await this.userModel.find();
     }
 
     async create() {
-        // return await this.reviewModel.create();
+        // return await this.userModel.create();
     }
 
     async update(id) {
@@ -23,6 +22,4 @@ export class ReviewService {
     async delete(id) {
         //return delete
     }
-
-
 }
