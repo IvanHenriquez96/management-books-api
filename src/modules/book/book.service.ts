@@ -12,4 +12,8 @@ export class BookService {
     async findAll(){
         return await this.bookModel.find();
     }
+
+    async create() {
+        // return await this.bookModel.create();
+    }
 }

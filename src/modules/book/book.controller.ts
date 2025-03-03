@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
 import { BookService } from "./book.service";
 
 @Controller('/books')
@@ -10,4 +10,21 @@ export class BookController {
     findAll() {
         return this.bookService.findAll();
     }
+
+    @Post('/')
+    create() {
+        return this.bookService.create();
+    }
+
+    @Put(':id')
+    update() {
+        //find and update
+    }
+
+    @Delete()
+    delete(){
+        //delete book
+    }
+
+    
 }
