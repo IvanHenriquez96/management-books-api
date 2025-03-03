@@ -18,7 +18,7 @@ export class Book extends Document {
     coverImage: string;
 
     @Prop({default:'pending'})
-    status: IBookStatus;
+    status: string;
 
     @Prop({default: 0})
     pagesRead: number;
