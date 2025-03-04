@@ -7,6 +7,25 @@ import { Model } from "mongoose";
 export class UserService {
     constructor(@InjectModel(User.name) private userModel: Model<User>){}
 
+    private readonly users = [
+        {
+            _id: '1',
+            name: 'Ivan',
+            email: 'ivan@gmail.com',
+            password: '123'
+        },
+        {
+            _id: 2,
+            name: 'Cony',
+            email: 'cony@gmail.com',
+            password: '1234'
+        }
+    ];
+
+    async findOne(email: string) {
+        return this.users.find(user => user.email === email);
+    }
+
     async findAll(){
         return await this.userModel.find();
     }
