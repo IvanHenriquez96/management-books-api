@@ -7,7 +7,7 @@ import { AuthGuard } from "../auth/auth.guard";
 export class UserController {
 
     constructor(private userService: UserService){}
-    // @UseGuards(AuthGuard) //IT WORKS!
+    @UseGuards(AuthGuard) //IT WORKS!
     @Get('/')
     findAll(){
         return this.userService.findAll();
