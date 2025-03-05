@@ -28,14 +28,16 @@ export class AuthService{
         const isPasswordValid = await bcrypt.compare(pass, user.password);
         if(!isPasswordValid) throw new UnauthorizedException('Credenciales Incorrectas');
 
-        const { password, ...result } = user;
- 
-        return result;
+        return user;
     }
 
     async login(email: string, pass: string){
         const user = await this.validateUser(email, pass);
-        const payload = {sub: user._id, email: user.email}
+        const payload = {
+            id: user._id,
+            email: user.email,
+            name: user.name
+        };
 
         const secretKey = this.getSecretKey();
 
